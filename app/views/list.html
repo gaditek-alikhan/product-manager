@@ -1,0 +1,43 @@
+<!--<div ng-controller="controllerProduct">-->
+<div>
+
+  <h3>Product Listing</h3>
+
+  <form role="form">
+
+      <input type="text" class="form-control" placeholder="Search" ng-model="search" style="margin-top:20px;"/>
+      <div style="margin-top:20px;">
+        <table class="table table-bordered table-condensed table-hover" ng-cloak>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+			  <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="prod in product | orderBy:'name' | filter:search" ng-class="{'warning': prod.enabled == false}">
+              <td><a href="#/product/{{prod.id}}" title="View Details And Comments">{{prod.name}}</a></td>
+              <td>${{prod.price}}</td>
+			  <td>{{prod.description}}</td>
+              <td><span ng-class="{'text-danger': prod.enabled == false}">{{prod.enabled ? 'Enabled' : 'Disabled'}}</span></td>
+              <td>
+                <div class="btn-group">
+                  <a class="btn btn-default" href="#/product-edit/{{prod.id}}">
+                    <span class="glyphicon glyphicon-edit" title="Edit Product"></span>
+                  </a>
+                  <button class="btn btn-default" ng-click="delete(prod.id)" title="Delete Product">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+  </form>
+
+</div>

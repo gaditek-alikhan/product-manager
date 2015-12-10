@@ -1,0 +1,40 @@
+<div ng-controller="controllerEditProduct">
+
+  <h1 ng-cloak class="ng-cloak">{{product.name}} <small>{{product.id}}</small></h1>
+
+   <form name="formProduct" role="form" ng-submit="submitForm(formProduct.$valid)" novalidate>
+
+    <div class="form-group" ng-class="{ 'has-error' : formProduct.name.$invalid && submitted }">
+      <label for="name">Name *</label>
+      <input id="name" name="name" type="text" class="form-control" placeholder="Name" ng-model="product.name" ng-minlength="3" ng-maxlength="50" required>
+      <p ng-show="formProduct.name.$invalid && submitted" class="help-block text-right">Required.</p>
+      <p ng-show="formProduct.name.$error.minlength && submitted" class="help-block text-right">Still short...</p>
+      <p ng-show="formProduct.name.$error.maxlength && submitted" class="help-block text-right">Name is too long.</p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : formProduct.price.$invalid && submitted }">
+      <label for="price">Price *</label>
+      <input id="price" name="price" type="text" class="form-control" placeholder="Price" ng-model="product.price" required>
+      <p ng-show="formProduct.price.$invalid && submitted" class="help-block text-right">Required.</p>      
+    </div>
+    
+	<div class="form-group" ng-class="{ 'has-error' : formProduct.description.$invalid && submitted }">
+      <label for="description">Description *</label>
+      <input id="description" name="description" type="text" class="form-control" placeholder="Description" ng-model="product.description" required>
+      <p ng-show="formProduct.description.$invalid && submitted" class="help-block text-right">Required.</p>      
+    </div>	
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ng-model="product.enabled" checked/> Enabled
+      </label>
+    </div>
+
+    <div class="pull-right">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+      <button type="submit" class="btn btn-primary">Done</button>
+    </div>
+
+  </form>
+
+</div>

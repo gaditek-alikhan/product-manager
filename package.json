@@ -1,0 +1,16 @@
+{
+    "name": "product-manager",
+	"author" : "Ali Khan",
+    "email" : "p2p.alikhan@gmail.com",
+    "description":"Product Manager with Commenting System",
+    "version": "0.0.1",
+    "repository": "https://github.com/gaditek-alikhan/product-manager.git",
+    "dependencies": {
+        "express": "~4.4.1",
+		"mongoose": "~3.8.12",
+		"body-parser": "~1.3.0",
+		"method-override": "~2.0.1",
+		"morgan": "~1.1.1",
+		"winston": "latest"
+    }
+}

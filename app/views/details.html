@@ -1,0 +1,33 @@
+<div ng-controller="controllerDetails">
+
+  <h3 ng-cloak class="ng-cloak">{{product.name}} <small>ID:#{{product.id}}</small></h3>
+
+  <p ng-cloak class="ng-cloak">price: {{product.price}}</p>
+  <p ng-cloak class="ng-cloak">description: {{product.description}}</p>
+  <p ng-cloak class="ng-cloak">Enabled: {{ product.enabled }}</p>
+  
+   
+   <h3 class="custom">Comments</h3>	
+	<ul class="list-group" ng-repeat="comment in product.comments">
+    <li class="list-group-item">{{comment}}</li>
+	</ul>
+  
+  <h3 class="custom">Add Your Comment</h3>  
+  <form name="formComment" role="form" ng-submit="submitForm(formComment.$valid)" novalidate>
+
+    
+	<div class="form-group" ng-class="{ 'has-error' : formComment.comment.$invalid && submitted }">
+      <label for="comment">Comment *</label>
+      <input id="comment" name="comment" type="text" class="form-control" placeholder="Comment" ng-model="comment" required>
+      <p ng-show="formComment.description.$invalid && submitted" class="help-block text-right">Required.</p>      
+    </div>
+	
+    <div class="pull-right">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+      <button type="submit" class="btn btn-primary">Done</button>
+    </div>
+
+  </form>
+  
+</div>
+
