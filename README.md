@@ -1,6 +1,6 @@
 Ali Khan
 =============
-Sample MeanApp created for wirestorm
+Product Manager With Commenting System
 
 ##Installation
 npm install
